@@ -22,8 +22,7 @@
 \prohlasenimuz
 {Brno 21.9.2023}
 
-\abstract{}{
-        This bachelor thesis deals with the implementation of a reports component, 
+\abstract{}{This bachelor thesis deals with the implementation of a reports component, 
     which is a part of attendance records in the Smart Mendelu environment. 
     The thesis also contains a general overview of the implementation of microservices 
     and examines the benefits and shortcomings of using a microservices architecture. 
@@ -31,8 +30,7 @@
     and its Spring Boot framework, along with JavaScript and its Vue.js framework 
     to create a reactive user interface.
 }
-\abstrakt{}{
-        Tato bakalářská práce se zabývá implementací komponenty sestavy, 
+\abstrakt{}{Tato bakalářská práce se zabývá implementací komponenty sestavy, 
     která je součástí evidence docházky v prostředí Smart Mendelu. 
     Práce dále obsahuje obecný přehled problematiky implementace mikroslužeb 
     a zkoumá přínosy a nedostatky použití architektury mikroslužeb. 
@@ -60,30 +58,41 @@
     při vývoji informačních systémů.
 \kapitola{Současný stav evidence docházky}
 \sekce{Architektura}
+Komponenta ED, která je využívána v současné době v produkčním prostředí, je postavena
+na monolitické architektuře a napsána v skriptovacím jazyce PHP. Tento přístup zahrnuje:
+\begin{itemize}
+    \item Jednu základnu kódu
+    \item Jednu databázi pro všechna data
+    \item Jeden nebo několik serveru, na kterých běži instance aplikace
+    \item Jeden bod vstupu pro všechny požadavky (index.php)
+\end{itemize}
+
+Výhody tohoto prístupu jsou v tom, že za prvé je jednoduchá a pochopitelná na
+začátku vývoje. Za druhé je dobře škálovatelná v rámcí jednoho zařízení, protože základná
+kódu se nachází na jednom místě. Ze stejného důvodu je snadno jí nasazovat, testovat a je
+proto nákladově efektivní.
+Evidence docházky není jedinou komponentou, která běží na serveru, spolu s ní
+neoddělitelně běží i další částí aplikace. Během času kódová základna informačního systému
+docházky se bude rozšiřovat, částí kódu se stanou na sobě více závislé. Kvůli tomu ladění a
+oprava chyb, testování jednotlivých částí kódu, nasazení budou probíhat obtížněji, protože se
+zvyšuje riziko poškodit program na jiném místě. Při škálování monolitického systému také
+nastává problém protože pokud bude třeba oddělit a přenést na jiné zařízení určitou část
+systému, to prakticky nebude uskutečnitelné.
 \sekce{Návrh}
-
+O vizualním designu aplikace. Body k zohlednění:
+\begin{itemize}
+    \item Jasnost a Srozumitelnost
+    \item Přehlednost
+    \item Responzivita
+\end{itemize}
 \sekce{Bezpečnost}
-\sekce{Monolitní aplikace}
-    Komponenta ED, která je využívána v současné době v produkčním prostředí, je postavena
-    na monolitické architektuře a napsána v skriptovacím jazyce PHP. Tento přístup zahrnuje:
-    \begin{itemize}
-        \item Jednu základnu kódu
-        \item Jednu databázi pro všechna data
-        \item Jeden nebo několik serveru, na kterých běži instance aplikace
-        \item Jeden bod vstupu pro všechny požadavky (index.php)
-    \end{itemize}
-
-    Výhody tohoto prístupu jsou v tom, že za prvé je jednoduchá a pochopitelná na
-    začátku vývoje. Za druhé je dobře škálovatelná v rámcí jednoho zařízení, protože základná
-    kódu se nachází na jednom místě. Ze stejného důvodu je snadno jí nasazovat, testovat a je
-    proto nákladově efektivní.
-    Evidence docházky není jedinou komponentou, která běží na serveru, spolu s ní
-    neoddělitelně běží i další částí aplikace. Během času kódová základna informačního systému
-    docházky se bude rozšiřovat, částí kódu se stanou na sobě více závislé. Kvůli tomu ladění a
-    oprava chyb, testování jednotlivých částí kódu, nasazení budou probíhat obtížněji, protože se
-    zvyšuje riziko poškodit program na jiném místě. Při škálování monolitického systému také
-    nastává problém protože pokud bude třeba oddělit a přenést na jiné zařízení určitou část
-    systému, to prakticky nebude uskutečnitelné.
+Body k zohlednění:
+\begin{itemize}
+    \item Zranitelnosti použitých knihoven
+    \item Validace Vstupů
+    \item Ochrana proti CSRF, XSS, SQL Injection
+    \item Šifrování
+\end{itemize}
 \sekce{Výhody použití nových technologií}
     Podle nefunkčních požadavku popsaných v předchozí kapitole vyhovující
     architekturou na straně serveru bude architektura mikroslužeb. Podle Newmana (2015) mikroslužby jsou
@@ -105,10 +114,8 @@
 \end{itemize}
 
 \kapitola{Postup implementace}
-Popis principu, výhody/nevýhody
 \sekce{Backendová část}
-Popís struktury Spring Boot aplikace: endpointy, napojení na databazi, 
-použite nastroje/baličky
+Popís struktury Spring Boot aplikace: endpointy, napojení na databazi, použite nastroje/baličky
 \sekce{Frontendová část}
 Popís struktury Vue.js aplikace: implementace vizualních komponent 
 (tabulky, uživatelský panel), autentikace, použite nastroje/baličky. 
