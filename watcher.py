@@ -15,7 +15,18 @@ class FileChangeHandler(FileSystemEventHandler):
             print(f"File {file} has been modified.")
             print(f"Event type: {event.event_type}")
             print(f"Time: {time.strftime('%Y-%m-%d %H:%M:%S')}")
-            subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+            print("Standard Output:")
+            print(result.stdout)
+
+            print("\nStandard Error:")
+            print(result.stderr)
+
+            if result.returncode == 0:
+                print("Command executed successfully")
+            else:
+                print(f"Command failed with return code {result.returncode}")
 
 
 if __name__ == "__main__":
@@ -27,8 +38,8 @@ if __name__ == "__main__":
 
     try:
         while True:
-            time.sleep(1)
-    except KeyboardInterrupt:
-        observer.stop()
+            time.sleep(5)
 
-    observer.join()
+    finally:
+        observer.stop()
+        observer.join()
