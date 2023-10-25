@@ -1,0 +1,18 @@
+\selectlanguage *{czech}
+\selectlanguage *{czech}
+\selectlanguage *{czech}
+\selectlanguage *{english}
+\selectlanguage *{czech}
+\contentsline {section}{\numberline {1}Úvod}{6}{}%
+\contentsline {subsection}{\numberline {1.1}Úvod do práce}{6}{}%
+\contentsline {subsection}{\numberline {1.2}Cíl práce}{6}{}%
+\contentsline {section}{\numberline {2}Současný stav evidence docházky}{7}{}%
+\contentsline {subsection}{\numberline {2.1}Architektura}{7}{}%
+\contentsline {subsection}{\numberline {2.2}Návrh}{7}{}%
+\contentsline {subsection}{\numberline {2.3}Bezpečnost}{7}{}%
+\contentsline {subsection}{\numberline {2.4}Výhody použití nových technologií}{8}{}%
+\contentsline {subsection}{\numberline {2.5}Současné trendy vývoje webových aplikací}{8}{}%
+\contentsline {section}{\numberline {3}Postup implementace}{9}{}%
+\contentsline {subsection}{\numberline {3.1}Backendová část}{9}{}%
+\contentsline {subsection}{\numberline {3.2}Frontendová část}{9}{}%
+\contentsline {subsection}{\numberline {3.3}Framework Vue.js}{9}{}%

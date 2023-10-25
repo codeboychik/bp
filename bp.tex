@@ -117,8 +117,65 @@ Body k zohlednění:
 \sekce{Backendová část}
 Popís struktury Spring Boot aplikace: endpointy, napojení na databazi, použite nastroje/baličky
 \sekce{Frontendová část}
-Popís struktury Vue.js aplikace: implementace vizualních komponent 
-(tabulky, uživatelský panel), autentikace, použite nastroje/baličky. 
+Na začátku webové stránky představovaly sebou systémy, ve kterých na straně serveru probíhála uplná generace HTML stránek.
+Server po obdržení požadavku se mohl dotazovat na externí API, ziskávat data z databaze a provádět interní zpracování těchto zkumulovaných dat. 
+Následně shromažděná informace spolu s JavaScript funkcemi se dosazovala do výsledné HTML stránky a celá byla odesílana klientovi zpět. 
+Jako každa metoda implementace webových stránek, tato metoda má svoje výhody, především z hlediska:
+\begin{enumerate}
+    \item procházení a indexování webu vyhledavači
+    \item konzistenci a přístupnosti výsledné stránky bez ohledu na prezenci JavaScriptu u klienta. 
+\end{enumerate}
+
+\hspace{0.5cm} Jestli s benefitem číslo 1 ještě bychom mohli souhlasit, u druhého bodu už by se dalo tvrdit, že JavaScript je standardem každého prohližeče 
+a s každým dnem do budoucna pravděpodobnost chyby v jeho jádru se snižuje. Výjimkou může být případ, kdy za účelem bezpečnosti spouštění JavaScriptu u klienta muže být omezeno nebo zcela zakázano, 
+v takových případech posílaní potřebných funkcí ze serveru je jediná cesta ho použit. 
+Je znam i další benefit tohoto přístupu, však také není tak jednoznačný -- rychlost renderování stránek. Postupem času webové stránky zvyšují svoji komplexitu,
+jak z hlediska vypočtu potřebných dat, tak z hlediska visualního vzhledu. Vzhledem k tomu čas potřebný pro renderování neustalé roste, mezitím klientovi nic nezbývá 
+než čekat na odpověď serveru.
+
+\hspace{0.5cm} Skutečnost, že výpočetní zátěž je zcela ramenách serveru v případě populárních MVC frameworků je podle Mikovskeho a Powella je jedním z důvodů jejich pomalosti.
+Alternativou tomuto tradičnímu přístupu je jednostránková aplikace (angl. Single Page Application, SPA). SPA je aplikace doručená do prohlížeče, která během používání znovu 
+nenačítá stránku. Stejně jako všechny ostatní aplikace je určena k tomu, aby uživateli pomohla dokončit určitý úkol, například "napsat dokument" nebo "spravovat webový server". 
+SPA si můžeme představit jako tlustého klienta, který se načítá z webového serveru.
+
+\sekce{Framework Vue.js}
+Vue.js je framework napsany v JavaScriptu a jeho hlavním použitím je implementace uživatelského rozhrání. 
+Je postaven nad standartní programovací soupravou jazyků HTML, CSS a JavaScript. 
+Model programování je záložen na komponentově-deklarativním přístupu. V nasledijicích obrazcích si ukážeme příklad, 
+ve kterém rozhrání aplikace Sestavy se přepíná z české na anglickou lokalizaci: 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/_lokalizace.png}
+    \caption{Zdrojové kod tlačitek lokalizace}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/en_lokalizace.png}
+    \caption{Výchozí nastavení lokalizace}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/cz_lokalizace.png}
+    \caption{Změna lokalizace na českou}
+\end{figure}
+Příklad výše ukazuje dvě klíčové vlastností tohoto přístupu:
+\begin{itemize}
+    \item Deklarativní vykreslování: Vue rozšiřuje standardní HTML o syntaxi šablon, která nám umožňuje deklarativně popsat výstup HTML na základě stavu JavaScriptu.
+    \item Reaktivita: Vue automaticky sleduje změny stavu JavaScriptu a při změnách efektivně aktualizuje DOM.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+Popís struktury Vue.js aplikace: implementace vizualních komponent
+(tabulky, uživatelský panel), autentikace, použite nastroje/baličky.
 \newline
 \newline
 Poznámky:
